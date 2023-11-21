@@ -55,6 +55,6 @@ jobs:
     - name: Logging in to Docker
       run: docker login ghcr.io -u Attilae87 -p ${{ github.token }}
     - name: Build the Docker image
-      run: docker build . -t ghcr.io/Attilae87/cubix/1/homework/app:springboot
+      run: docker build . -t ghcr.io/attilae87/cubix/1/homework/app:springboot
     - name: Logging in to Docker
-      run: docker push ghcr.io/Attilae87/cubix/1/homework/app:springboot
+      run: docker push ghcr.io/attilae87/cubix/1/homework/app:springboot
