@@ -57,7 +57,7 @@ jobs:
       run: docker login ghcr.io -u Attilae -p ${{ github.token }}
 
     - name: Build the Docker image
-      run: docker build . -t ghcr.io/attilae/cubix/1/homework/app:springboot --platform linux/amd64
+      run: docker build . -t ghcr.io/attilae/cubix/1/homework/app:springboot --platform linux/arm64/v8
     
     - name: Push to Docker
       run: docker push ghcr.io/attilae/cubix/1/homework/app:springboot
