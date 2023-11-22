@@ -53,7 +53,7 @@ jobs:
       with:
         name: java-app
     - name: Logging in to Docker
-      run: docker login ghcr.io -u Attilae87 -p ${{ github.token }}
+      run: docker login ghcr.io -u attilae87 -p ${{ secrets.GITHUB_TOKEN }}
     - name: Build the Docker image
       run: docker build . -t ghcr.io/attilae87/cubix/1/homework/app:springboot
     - name: Logging in to Docker
