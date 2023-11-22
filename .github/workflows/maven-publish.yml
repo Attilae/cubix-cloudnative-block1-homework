@@ -54,14 +54,10 @@ jobs:
         name: java-app
 
     - name: Login with Github Container registry
-      uses: docker/login-action@v2
-      with:
-        registry: ghcr.io
-        username: attilae87
-        password: ${{ secrets.GITHUB_TOKEN }}
-    
+      run: docker login ghcr.io -u Attilae -p ${{ github.token }}
+
     - name: Build the Docker image
-      run: docker build . -t ghcr.io/attilae87/cubix/1/homework/app:springboot
+      run: docker build . -t ghcr.io/attilae/cubix/1/homework/app:springboot
     
     - name: Push to Docker
-      run: docker push ghcr.io/attilae87/cubix/1/homework/app:springboot
+      run: docker push ghcr.io/attilae/cubix/1/homework/app:springboot
