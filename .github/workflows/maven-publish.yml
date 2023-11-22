@@ -52,12 +52,16 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: java-app
-    
-    - name: Logging in to Docker
-      run: docker login ghcr.io -u ${{ github.repository_owner }} -p ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Login with Github Container registry
+      uses: docker/login-action@v2
+      with:
+        registry: ghcr.io
+        username: attilae87
+        password: ${{ secrets.GITHUB_TOKEN }}
     
     - name: Build the Docker image
-      run: docker build . -t ghcr.io/${{ github.repository_owner }}/cubix/1/homework/app:springboot
+      run: docker build . -t ghcr.io/attilae87/cubix/1/homework/app:springboot
     
     - name: Push to Docker
-      run: docker push ghcr.io/${{ github.repository_owner }}/cubix/1/homework/app:springboot
+      run: docker push ghcr.io/attilae87/cubix/1/homework/app:springboot
