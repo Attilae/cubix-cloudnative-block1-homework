@@ -61,3 +61,15 @@ jobs:
     
     - name: Push to Docker
       run: docker push ghcr.io/attilae/cubix/1/homework/app:springboot
+
+  verify:
+    runs-on: ubuntu-latest
+    needs: docker
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+    - name: Verify Docker image
+      run: ./verify-image.sh
+    
